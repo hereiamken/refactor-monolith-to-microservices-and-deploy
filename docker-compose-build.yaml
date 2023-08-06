@@ -11,8 +11,8 @@ services:
   backend_feed:
     build:
       context: ./udagram-api-feed
-    image: hereiamken/udagram-api-feed
+    image: hereiamken/udagram-api-user
   frontend:
     build:
       context: ./udagram-frontend
-    image: hereiamken/udagram-frontend:local
+    image: hereiamken/udagram-frontend
