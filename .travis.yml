@@ -2,10 +2,10 @@ language: node_js
 
 node_js:
   - 14
-
 services:
   - docker
-
+on:
+  branch: master
 env:
   global:
     - UDAGRAM_API_FEED_IMAGE_NAME=udagram-api-feed
