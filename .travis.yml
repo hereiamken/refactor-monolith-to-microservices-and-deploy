@@ -2,10 +2,10 @@ language: node_js
 
 node_js:
   - 14
-
 services:
   - docker
-
+on:
+  branch: master
 env:
   global:
     - UDAGRAM_API_FEED_IMAGE_NAME=udagram-api-feed
@@ -16,7 +16,7 @@ env:
 
     - UDAGRAM_REVERSEPROXY_IMAGE_NAME=reverseproxy
 
-    - TAG=v2
+    - TAG=v3
 
 script:
   - docker-compose -f ./docker-compose-build.yaml build --parallel
