@@ -17,7 +17,7 @@ env:
 
     - UDAGRAM_REVERSEPROXY_IMAGE_NAME=reverseproxy
 
-    - TAG=v6
+    - TAG=v7
 
 script:
   - docker-compose -f ./docker-compose-build.yaml build --parallel
