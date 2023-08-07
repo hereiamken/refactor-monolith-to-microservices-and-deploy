@@ -4,9 +4,7 @@ node_js:
   - 14
 services:
   - docker
-deploy:
-  on:
-    branch: master
+
 env:
   global:
     - UDAGRAM_API_FEED_IMAGE_NAME=udagram-api-feed
@@ -17,7 +15,7 @@ env:
 
     - UDAGRAM_REVERSEPROXY_IMAGE_NAME=reverseproxy
 
-    - TAG=v4
+    - TAG=v5
 
 script:
   - docker-compose -f ./docker-compose-build.yaml build --parallel
@@ -29,6 +27,11 @@ script:
   - docker tag $UDAGRAM_FRONTEND_IMAGE_NAME $DOCKER_USERNAME/$UDAGRAM_FRONTEND_IMAGE_NAME:$TAG
 
   - docker tag $UDAGRAM_REVERSEPROXY_IMAGE_NAME $DOCKER_USERNAME/$UDAGRAM_REVERSEPROXY_IMAGE_NAME:$TAG
+
+deploy:
+  provider: script
+  on:
+    branch: master
 
 after_script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
